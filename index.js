@@ -116,10 +116,6 @@ const init = () => {
       const teamManager = new Manager(promptData.name, promptData.id, promptData.email, promptData.officeNumber)
       //log manager object key values
       console.log(teamManager)
-      console.log(teamManager.name)
-      console.log(teamManager.id)
-      console.log(teamManager.email)
-      console.log(teamManager.officeNumber)
       //log manager object name 
       teamManager.getName()
       teamManager.getEmail()
@@ -139,11 +135,9 @@ const init = () => {
             .then((promptData) => {
             let engineer = new Engineer(promptData.name, promptData.id, promptData.email, promptData.github)
             console.log(engineer)
-            console.log(engineer.name)
-            console.log(engineer.id)
-            console.log(engineer.email)
             engineerArray.push(engineer)
               console.log(engineerArray)
+              addMoreTeamMembers()
             })
           }
         }
