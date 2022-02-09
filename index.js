@@ -3,11 +3,9 @@ const fs = require('fs');
 const manager = require('./lib/manager')
 const employee = require('./lib/employee');
 const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer')
 
 //prompts for user input for team members and their information
-
-
-//team manager's name, employee id, email address, and office number
 
 const managerQuestions = [
   {
@@ -37,6 +35,7 @@ const managerQuestions = [
   // }
 ]
 
+//asks if user wants to complete team or add more members
 const addTeamMembers = {
   type: 'list',
   name: 'addTeam',
@@ -48,16 +47,36 @@ const addTeamMembers = {
   ]
 }
 
+const engineerQuestions = [
+  {
+    type: 'input',
+    name: 'name',
+    message: "What is the engineer's name?"
+  },
+  {
+    type: 'number',
+    name: 'id',
+    message: "What is the engineer's employee ID number?"
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: "What is the engineer's email address?"
+  },
+  {
+    type: 'input',
+    name: 'github',
+    message: "What is the engineer's GitHub name?"
+  },
+]
+
+
 
 //after adding team manager (ONLY BE ABLE TO ADD 1), then more team members will be able to be added via a loop
-//menu with option (confirm y/n)
 
 //when adding team member is done, you return to menu
 
-
 //when application is exited, html is generated
-
-
 
 //functions to ask prompt questions and return answers
 
@@ -67,6 +86,10 @@ const managerGenerator = () => {
 
 const addMoreTeamMembers = () => {
   return inquirer.prompt(addTeamMembers)
+}
+
+const engineerGenerator = () => {
+  return inquirer.prompt(engineerQuestions)
 }
 
 //create a function to initialize app
@@ -86,6 +109,7 @@ const addMoreTeamMembers = () => {
 
 const init = () => {
   //start manager prompts
+  let engineerArray = [];
   managerGenerator()
     .then((promptData) => {
       //build manager object according to prompts
@@ -96,7 +120,7 @@ const init = () => {
       console.log(teamManager.id)
       console.log(teamManager.email)
       console.log(teamManager.officeNumber)
-            //log manager object name 
+      //log manager object name 
       teamManager.getName()
       teamManager.getEmail()
       teamManager.getId()
@@ -105,12 +129,23 @@ const init = () => {
       addMoreTeamMembers()
         .then((promptData) => {
           //if user opts to not add more team members
-          if (promptData.addTeam === 'None - my team is complete') {
+          if (promptData.addTeam === 'None - my team is complete.') {
             //log team is complete
             console.log('Team is complete.')
             //else if user wants to add more team members
           }
-          
+          if (promptData.addTeam === 'Engineer'){
+            engineerGenerator()
+            .then((promptData) => {
+            let engineer = new Engineer(promptData.name, promptData.id, promptData.email, promptData.github)
+            console.log(engineer)
+            console.log(engineer.name)
+            console.log(engineer.id)
+            console.log(engineer.email)
+            engineerArray.push(engineer)
+              console.log(engineerArray)
+            })
+          }
         }
 
         )
