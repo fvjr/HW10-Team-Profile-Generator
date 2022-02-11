@@ -1,16 +1,17 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const manager = require('./lib/manager')
-const employee = require('./lib/employee');
+// const manager = require('./lib/manager')
+// const employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
+const generateHTML = require('./Assets/generateHTML')
 
 //stores employee data
 let employeeList = [];
+// let employeeSheet = []
 
 //prompts for user input for team members and their information
-
 const managerQuestions = [
   {
     type: 'input',
@@ -94,13 +95,12 @@ const internQuestions = [
   },
 ]
 
-
-
 //main function to make manager and start building team
 const teamGenerator = () => {
   inquirer.prompt(managerQuestions)
     .then((managerData) => {
       const teamManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber)
+      teamManager.role = 'Manager'
       employeeList.push(teamManager)
       console.log(employeeList)
       addMoreTeamMembers()
@@ -120,19 +120,24 @@ const addMoreTeamMembers = () => {
       else if (addTeamData.addTeam === `None - my team is complete.`) {
         console.log('Done making team')
         console.log(employeeList)
+       
+        // employeeGenerator(employeeList) 
         employeeList.forEach(employee => {
-          console.log(`Employee name:` + employee.name +"\n" 
-           + `Employee ID:` + employee.id)
+            console.log('success!')          
+            writeToFile('employeeList.html', (employeeList), err => {
+            if (err) {
+              console.log(err);
+            }
+          })
         });
-      }
-    })
-}
-
+}})}
+    
 //function to create engineers
 const engineerGenerator = () => {
   inquirer.prompt(engineerQuestions)
     .then((engineerData) => {
       let newEngineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
+      newEngineer.role = 'Engineer'
       employeeList.push(newEngineer);
       console.log(employeeList);
       addMoreTeamMembers();
@@ -144,6 +149,7 @@ const internGenerator = () => {
   inquirer.prompt(internQuestions)
     .then((internData) => {
       let newIntern = new Intern(internData.name, internData.id, internData.email, internData.school)
+      newIntern.role = 'Intern'
       employeeList.push(newIntern);
       console.log(employeeList);
       addMoreTeamMembers();
@@ -151,13 +157,15 @@ const internGenerator = () => {
     )
 }
 
-//trying with new promises
+//when application is exited, html is generated
+const writeToFile = (fileName, employeeList) => {
+  fs.writeFileSync(fileName, generateHTML(employeeList))
+}
+
+//initializes app
 const init = () => {
   //start team builder prompts
   teamGenerator()
 }
-
 //function call to initialize app
 init();
-
-//when application is exited, html is generated
