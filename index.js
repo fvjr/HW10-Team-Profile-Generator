@@ -9,7 +9,6 @@ const generateHTML = require('./Assets/generateHTML')
 
 //stores employee data
 let employeeList = [];
-// let employeeSheet = []
 
 //prompts for user input for team members and their information
 const managerQuestions = [
@@ -102,7 +101,6 @@ const teamGenerator = () => {
       const teamManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber)
       teamManager.role = 'Manager'
       employeeList.push(teamManager)
-      console.log(employeeList)
       addMoreTeamMembers()
     })
 }
@@ -139,7 +137,6 @@ const engineerGenerator = () => {
       let newEngineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
       newEngineer.role = 'Engineer'
       employeeList.push(newEngineer);
-      console.log(employeeList);
       addMoreTeamMembers();
     })
 }
@@ -151,7 +148,6 @@ const internGenerator = () => {
       let newIntern = new Intern(internData.name, internData.id, internData.email, internData.school)
       newIntern.role = 'Intern'
       employeeList.push(newIntern);
-      console.log(employeeList);
       addMoreTeamMembers();
     }
     )
@@ -169,3 +165,4 @@ const init = () => {
 }
 //function call to initialize app
 init();
+
