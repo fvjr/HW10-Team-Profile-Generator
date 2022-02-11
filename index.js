@@ -94,17 +94,29 @@ const internQuestions = [
   },
 ]
 
-//main function to make manager and start building team
-const teamGenerator = () => {
-  inquirer.prompt(managerQuestions)
-    .then((managerData) => {
-      const teamManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber)
-      teamManager.role = 'Manager'
-      employeeList.push(teamManager)
-      addMoreTeamMembers()
+
+//function to create engineers
+const engineerGenerator = () => {
+  inquirer.prompt(engineerQuestions)
+    .then((engineerData) => {
+      let newEngineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
+      // newEngineer.role = 'Engineer'
+      employeeList.push(newEngineer);
+      addMoreTeamMembers();
     })
 }
 
+//function to create interns
+const internGenerator = () => {
+  inquirer.prompt(internQuestions)
+    .then((internData) => {
+      let newIntern = new Intern(internData.name, internData.id, internData.email, internData.school)
+      // newIntern.role = 'Intern'
+      employeeList.push(newIntern);
+      addMoreTeamMembers();
+    }
+    )
+}
 //function to add more team members
 const addMoreTeamMembers = () => {
   inquirer.prompt(addTeamMembers)
@@ -117,40 +129,25 @@ const addMoreTeamMembers = () => {
       }
       else if (addTeamData.addTeam === `None - my team is complete.`) {
         console.log('Done making team')
-        console.log(employeeList)
-       
-        // employeeGenerator(employeeList) 
-        employeeList.forEach(employee => {
-            console.log('success!')          
+        employeeList.forEach(employee => {         
             writeToFile('employeeList.html', (employeeList), err => {
             if (err) {
               console.log(err);
             }
+            console.log('Team generated')
           })
         });
 }})}
     
-//function to create engineers
-const engineerGenerator = () => {
-  inquirer.prompt(engineerQuestions)
-    .then((engineerData) => {
-      let newEngineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
-      newEngineer.role = 'Engineer'
-      employeeList.push(newEngineer);
-      addMoreTeamMembers();
+//main function to make manager and start building team
+const teamGenerator = () => {
+  inquirer.prompt(managerQuestions)
+    .then((managerData) => {
+      const teamManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber)
+      // teamManager.role = 'Manager'
+      employeeList.push(teamManager)
+      addMoreTeamMembers()
     })
-}
-
-//function to create interns
-const internGenerator = () => {
-  inquirer.prompt(internQuestions)
-    .then((internData) => {
-      let newIntern = new Intern(internData.name, internData.id, internData.email, internData.school)
-      newIntern.role = 'Intern'
-      employeeList.push(newIntern);
-      addMoreTeamMembers();
-    }
-    )
 }
 
 //when application is exited, html is generated

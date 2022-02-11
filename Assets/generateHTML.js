@@ -1,3 +1,40 @@
+function addManagerCards(manager){
+  console.log(manager.getName())
+  return `
+  <li> ${manager.getName()}</li>
+  `
+
+}
+
+function addEngineerCards(engineer){
+  console.log(engineer.getName())
+  return `
+  <li> ${engineer.getName()}</li>
+  `
+
+}
+
+function addInternCards(intern){
+  console.log(intern.getName())
+  return `
+  <li> ${intern.getName()}</li>
+  `
+}
+
+function insertTeamCards(employeeList) {
+  let html = [];
+  // employeeList.forEach(employee => {
+  //   console.log(employee.getRole() === 'Manager')
+  // });
+  // console.log(employeeList)
+   html.push(employeeList.filter(employee => employee.getRole() === 'Manager').map(manager => addManagerCards(manager)));
+   html.push(employeeList.filter(employee => employee.getRole() === 'Engineer').map(engineer => addEngineerCards(engineer)).join(''));
+   html.push(employeeList.filter(employee => employee.getRole() === 'Intern').map(intern => addInternCards(intern)).join(''));
+  return html.join('')
+}
+
+
+
 function generateHTML(employeeList) {
 
   return `<!doctype html>
@@ -27,57 +64,16 @@ function generateHTML(employeeList) {
   
     <!-- container start -->
     <div class="container">
-      <!-- first row start -->
-      <div class="row" id = "card-rows">
-      TESTTTTTT11223151651
-        <!-- first card start -->
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name:</li>
-              <li class="list-group-item">Role: Manager</li>
-              <li class="list-group-item">ID:1</li>
-              <li class="list-group-item">Email:sdfsdfsdf@fake.com</li>
-              <li class="list-group-item">Office Number:1</li>
-            </ul>
-          </div>
-        </div>
-        <!-- first card end -->
-        <!-- second card start -->
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Name: 2222222</li>
-              <li class="list-group-item">Role: Engineer</li>
-              <li class="list-group-item">ID:2</li>
-              <li class="list-group-item">Email:sdfsdfsdf@fake.com</li>
-              <li class="list-group-item">Office Number:2</li>
-            </ul>
-          </div>
-          <!-- second card end -->
-        </div>
-        <!-- first row end -->
+      <div class="row">
+
+${insertTeamCards(employeeList)}
+
       </div>
-      <!-- container end -->
+    
+      
+<!-- container end -->
     </div>
   
-  $
-  
-  ${employeeList[0].name}
-  ${employeeList[0].role}
-  ${employeeList[0].officeNumber}
-  ${employeeList[0].email}
-
-  ${employeeList[1].name}
-  ${employeeList[1].role}
-  ${employeeList[1].id}
-  ${employeeList[1].email}
-  
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"></script>
-      <script src="./index.js"
   
   
   </body>
