@@ -23,7 +23,7 @@ function addEngineerCards(engineer) {
       <li class="list-group-item card-header">Name: ${engineer.getName()}</li>
       <li class="list-group-item">Role: ${engineer.getRole()}</li>
       <li class="list-group-item alt-line">ID: ${engineer.getId()}</li>
-      <li class="list-group-item">Email: ${engineer.getEmail()}</li>
+      <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
       <li class="list-group-item alt-line">GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
     </div>
     </div>
@@ -31,7 +31,7 @@ function addEngineerCards(engineer) {
 }
 
 function addInternCards(intern) {
-  console.log(intern.getName())
+  // console.log(intern.getName())
   return `
   <div class="col">
   <div class="card" style="width: 18rem;">
@@ -39,7 +39,7 @@ function addInternCards(intern) {
       <li class="list-group-item card-header">Name: ${intern.getName()}</li>
       <li class="list-group-item">Role: ${intern.getRole()}</li>
       <li class="list-group-item alt-line">ID: ${intern.getId()}</li>
-      <li class="list-group-item">Email: ${intern.getEmail()}</li>
+      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
       <li class="list-group-item alt-line">School: ${intern.getSchool()}</li>
     </div>
     </div>
