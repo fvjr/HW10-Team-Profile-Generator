@@ -1,23 +1,48 @@
-function addManagerCards(manager){
+function addManagerCards(manager) {
   console.log(manager.getName())
   return `
-  <li> ${manager.getName()}</li>
+  <div class="col">
+  <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: ${manager.getName()}</li>
+      <li class="list-group-item">Role: ${manager.getRole()}</li>
+      <li class="list-group-item">ID:${manager.getId()}</li>
+      <li class="list-group-item">Email:${manager.getEmail()}</li>
+      <li class="list-group-item">Office Number:${manager.getOfficeNumber()}</li>
+  </div>
+  </div>
   `
-
 }
 
-function addEngineerCards(engineer){
+function addEngineerCards(engineer) {
   console.log(engineer.getName())
   return `
-  <li> ${engineer.getName()}</li>
+  <div class="col">
+  <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: ${engineer.getName()}</li>
+      <li class="list-group-item">Role: ${engineer.getRole()}</li>
+      <li class="list-group-item">ID:${engineer.getId()}</li>
+      <li class="list-group-item">Email:${engineer.getEmail()}</li>
+      <li class="list-group-item">GitHub:${engineer.getGithub()}</li>
+    </div>
+    </div>
   `
-
 }
 
-function addInternCards(intern){
+function addInternCards(intern) {
   console.log(intern.getName())
   return `
-  <li> ${intern.getName()}</li>
+  <div class="col">
+  <div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Name: ${intern.getName()}</li>
+      <li class="list-group-item">Role: ${intern.getRole()}</li>
+      <li class="list-group-item">ID:${intern.getId()}</li>
+      <li class="list-group-item">Email:${intern.getEmail()}</li>
+      <li class="list-group-item">School:${intern.getSchool()}</li>
+    </div>
+    </div>
   `
 }
 
@@ -27,13 +52,11 @@ function insertTeamCards(employeeList) {
   //   console.log(employee.getRole() === 'Manager')
   // });
   // console.log(employeeList)
-   html.push(employeeList.filter(employee => employee.getRole() === 'Manager').map(manager => addManagerCards(manager)));
-   html.push(employeeList.filter(employee => employee.getRole() === 'Engineer').map(engineer => addEngineerCards(engineer)).join(''));
-   html.push(employeeList.filter(employee => employee.getRole() === 'Intern').map(intern => addInternCards(intern)).join(''));
+  html.push(employeeList.filter(employee => employee.getRole() === 'Manager').map(manager => addManagerCards(manager)));
+  html.push(employeeList.filter(employee => employee.getRole() === 'Engineer').map(engineer => addEngineerCards(engineer)).join(''));
+  html.push(employeeList.filter(employee => employee.getRole() === 'Intern').map(intern => addInternCards(intern)).join(''));
   return html.join('')
 }
-
-
 
 function generateHTML(employeeList) {
 
@@ -64,7 +87,7 @@ function generateHTML(employeeList) {
   
     <!-- container start -->
     <div class="container">
-      <div class="row">
+      <div class="row" id = "card-rows">
 
 ${insertTeamCards(employeeList)}
 
