@@ -4,11 +4,11 @@ function addManagerCards(manager) {
   <div class="col">
   <div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name: ${manager.getName()}</li>
+      <li class="list-group-item card-header">Name: ${manager.getName()}</li>
       <li class="list-group-item">Role: ${manager.getRole()}</li>
-      <li class="list-group-item">ID: ${manager.getId()}</li>
+      <li class="list-group-item alt-line">ID: ${manager.getId()}</li>
       <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-      <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
+      <li class="list-group-item alt-line">Office Number: ${manager.getOfficeNumber()}</li>
   </div>
   </div>
   `
@@ -20,11 +20,11 @@ function addEngineerCards(engineer) {
   <div class="col">
   <div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name: ${engineer.getName()}</li>
+      <li class="list-group-item card-header">Name: ${engineer.getName()}</li>
       <li class="list-group-item">Role: ${engineer.getRole()}</li>
-      <li class="list-group-item">ID: ${engineer.getId()}</li>
+      <li class="list-group-item alt-line">ID: ${engineer.getId()}</li>
       <li class="list-group-item">Email: ${engineer.getEmail()}</li>
-      <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
+      <li class="list-group-item alt-line">GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
     </div>
     </div>
   `
@@ -36,11 +36,11 @@ function addInternCards(intern) {
   <div class="col">
   <div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Name: ${intern.getName()}</li>
+      <li class="list-group-item card-header">Name: ${intern.getName()}</li>
       <li class="list-group-item">Role: ${intern.getRole()}</li>
-      <li class="list-group-item">ID: ${intern.getId()}</li>
+      <li class="list-group-item alt-line">ID: ${intern.getId()}</li>
       <li class="list-group-item">Email: ${intern.getEmail()}</li>
-      <li class="list-group-item">School: ${intern.getSchool()}</li>
+      <li class="list-group-item alt-line">School: ${intern.getSchool()}</li>
     </div>
     </div>
   `

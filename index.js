@@ -92,7 +92,6 @@ const internQuestions = [
   },
 ]
 
-
 //function to create engineers
 const engineerGenerator = () => {
   inquirer.prompt(engineerQuestions)
