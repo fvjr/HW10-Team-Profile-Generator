@@ -6,9 +6,9 @@ function addManagerCards(manager) {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Name: ${manager.getName()}</li>
       <li class="list-group-item">Role: ${manager.getRole()}</li>
-      <li class="list-group-item">ID:${manager.getId()}</li>
-      <li class="list-group-item">Email:${manager.getEmail()}</li>
-      <li class="list-group-item">Office Number:${manager.getOfficeNumber()}</li>
+      <li class="list-group-item">ID: ${manager.getId()}</li>
+      <li class="list-group-item">Email: ${manager.getEmail()}</li>
+      <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
   </div>
   </div>
   `
@@ -22,13 +22,15 @@ function addEngineerCards(engineer) {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Name: ${engineer.getName()}</li>
       <li class="list-group-item">Role: ${engineer.getRole()}</li>
-      <li class="list-group-item">ID:${engineer.getId()}</li>
-      <li class="list-group-item">Email:${engineer.getEmail()}</li>
-      <li class="list-group-item">GitHub:${engineer.getGithub()}</li>
+      <li class="list-group-item">ID: ${engineer.getId()}</li>
+      <li class="list-group-item">Email: ${engineer.getEmail()}</li>
+      <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
     </div>
     </div>
   `
 }
+
+// https://github.com/fvjr
 
 function addInternCards(intern) {
   console.log(intern.getName())
@@ -38,9 +40,9 @@ function addInternCards(intern) {
     <ul class="list-group list-group-flush">
       <li class="list-group-item">Name: ${intern.getName()}</li>
       <li class="list-group-item">Role: ${intern.getRole()}</li>
-      <li class="list-group-item">ID:${intern.getId()}</li>
-      <li class="list-group-item">Email:${intern.getEmail()}</li>
-      <li class="list-group-item">School:${intern.getSchool()}</li>
+      <li class="list-group-item">ID: ${intern.getId()}</li>
+      <li class="list-group-item">Email: ${intern.getEmail()}</li>
+      <li class="list-group-item">School: ${intern.getSchool()}</li>
     </div>
     </div>
   `
