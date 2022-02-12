@@ -115,6 +115,7 @@ const internGenerator = () => {
     }
     )
 }
+
 //function to add more team members
 const addMoreTeamMembers = () => {
   inquirer.prompt(addTeamMembers)
@@ -126,7 +127,7 @@ const addMoreTeamMembers = () => {
         internGenerator()
       }
       else if (addTeamData.addTeam === `None - my team is complete.`) {
-        console.log('Done making team')
+        console.log('Finished making team')
         employeeList.forEach(employee => {         
             writeToFile('employeeList.html', (employeeList), err => {
             if (err) {
@@ -142,7 +143,6 @@ const teamGenerator = () => {
   inquirer.prompt(managerQuestions)
     .then((managerData) => {
       const teamManager = new Manager(managerData.name, managerData.id, managerData.email, managerData.officeNumber)
-      // teamManager.role = 'Manager'
       employeeList.push(teamManager)
       addMoreTeamMembers()
     })
@@ -158,6 +158,7 @@ const init = () => {
   //start team builder prompts
   teamGenerator()
 }
+
 //function call to initialize app
 init();
 
