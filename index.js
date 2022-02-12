@@ -1,13 +1,11 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const manager = require('./lib/manager')
-// const employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern')
 const generateHTML = require('./Assets/generateHTML')
 
-//stores employee data
+//stores employee data created by employee generator functions
 let employeeList = [];
 
 //prompts for user input for team members and their information
@@ -134,7 +132,7 @@ const addMoreTeamMembers = () => {
             if (err) {
               console.log(err);
             }
-            console.log('Team generated')
+            console.log('Successfully generated team!')
           })
         });
 }})}

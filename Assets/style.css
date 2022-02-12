@@ -16,3 +16,6 @@ text-align: center;
 background-color: var(--dark);
 }
 
+.card{
+  margin-bottom: 4%;
+}

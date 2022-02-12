@@ -1,5 +1,5 @@
 function addManagerCards(manager) {
-  console.log(manager.getName())
+  // console.log(manager.getName())
   return `
   <div class="col">
   <div class="card" style="width: 18rem;">
@@ -7,7 +7,7 @@ function addManagerCards(manager) {
       <li class="list-group-item">Name: ${manager.getName()}</li>
       <li class="list-group-item">Role: ${manager.getRole()}</li>
       <li class="list-group-item">ID: ${manager.getId()}</li>
-      <li class="list-group-item">Email: ${manager.getEmail()}</li>
+      <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
       <li class="list-group-item">Office Number: ${manager.getOfficeNumber()}</li>
   </div>
   </div>
@@ -15,7 +15,7 @@ function addManagerCards(manager) {
 }
 
 function addEngineerCards(engineer) {
-  console.log(engineer.getName())
+  // console.log(engineer.getName())
   return `
   <div class="col">
   <div class="card" style="width: 18rem;">
@@ -29,8 +29,6 @@ function addEngineerCards(engineer) {
     </div>
   `
 }
-
-// https://github.com/fvjr
 
 function addInternCards(intern) {
   console.log(intern.getName())
@@ -55,7 +53,9 @@ function insertTeamCards(employeeList) {
   // });
   // console.log(employeeList)
   html.push(employeeList.filter(employee => employee.getRole() === 'Manager').map(manager => addManagerCards(manager)));
+
   html.push(employeeList.filter(employee => employee.getRole() === 'Engineer').map(engineer => addEngineerCards(engineer)).join(''));
+
   html.push(employeeList.filter(employee => employee.getRole() === 'Intern').map(intern => addInternCards(intern)).join(''));
   return html.join('')
 }
@@ -73,7 +73,7 @@ function generateHTML(employeeList) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="./Assets/style.css">
   
     <title>Team Generator</title>
   </head>
