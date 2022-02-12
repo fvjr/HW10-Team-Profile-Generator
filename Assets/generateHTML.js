@@ -7,7 +7,7 @@ function addManagerCards(manager) {
       <li class="list-group-item card-header">Name: ${manager.getName()}</li>
       <li class="list-group-item">Role: ${manager.getRole()}</li>
       <li class="list-group-item alt-line">ID: ${manager.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+      <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}" target= "blank">${manager.getEmail()}</a></li>
       <li class="list-group-item alt-line">Office Number: ${manager.getOfficeNumber()}</li>
   </div>
   </div>
@@ -23,8 +23,8 @@ function addEngineerCards(engineer) {
       <li class="list-group-item card-header">Name: ${engineer.getName()}</li>
       <li class="list-group-item">Role: ${engineer.getRole()}</li>
       <li class="list-group-item alt-line">ID: ${engineer.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-      <li class="list-group-item alt-line">GitHub: <a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
+      <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}" target= "blank">${engineer.getEmail()}</a></li>
+      <li class="list-group-item alt-line">GitHub: <a href="https://github.com/${engineer.getGithub()}" target= "blank">${engineer.getGithub()}</a></li>
     </div>
     </div>
   `
@@ -39,7 +39,7 @@ function addInternCards(intern) {
       <li class="list-group-item card-header">Name: ${intern.getName()}</li>
       <li class="list-group-item">Role: ${intern.getRole()}</li>
       <li class="list-group-item alt-line">ID: ${intern.getId()}</li>
-      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+      <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}" target= "blank">${intern.getEmail()}</a></li>
       <li class="list-group-item alt-line">School: ${intern.getSchool()}</li>
     </div>
     </div>
